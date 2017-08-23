@@ -24,6 +24,6 @@ figure(8), imshow(im1,[]);%con respecto a la imagen original esta saldra mas cla
 %dado que al dejar vacio el array matlab pone el valor min=3 seguido del
 %valor max=233
 colorbar;
-figure(9), imshow(im1,[51,178]); %con respecto a la anterior esta es mucho mas clara
+figure(9), imshow(im1,[51,178]);colorbar %con respecto a la anterior esta es mucho mas clara
 %el 20% de 255 = 51 y el 70% de 255 = 178.5
 text(250,229,'triangulo', 'color', [0.3 0.6 1], 'Fontname', 'Comic') %le puedo pasar al texto un color compuesto rgb definido en el array [] con valores 0-1

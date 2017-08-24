@@ -24,6 +24,7 @@ pa=[minimo,0]; pb=[maximo,1];x=0.83;
 im3=im2.^2;
 subplot(3,2,3),imshow(im3);colorbar
 title('Transformacion Cuadratica'); % Realce niveles bajos de intensidad
+% La imagen resultante es mas oscura que la original
 %para obtener un histograma de la imagen
 [h,x] = imhist(im3);
 subplot(3,2,4),stem(x,h,'marker','none');
@@ -36,7 +37,8 @@ text(0.22,3900,'valor medio', 'color', [1 0 1], 'Fontname', 'Comic')
 
 im4=sqrt(im2);
 subplot(3,2,5),imshow(im4);colorbar
-title('Transformacion Raiz'); % Realce niveles altos de intensidad
+title('Transformacion Raiz Cuadrada'); % Realce niveles altos de intensidad
+% La imagen resultante es mas clara que la original
 %para obtener un histograma de la imagen
 [h,x] = imhist(im4);
 subplot(3,2,6),stem(x,h,'marker','none');
@@ -58,6 +60,8 @@ hold on, line([p,p],[0,max(h)], 'color', 'm')%Marca la media del histograma para
 %subplot(2,1,3),stem(x,h,'marker','none')
 %title('Histograma de la imagen');
 text(115,3300,'valor medio', 'color', [1 0 1], 'Fontname', 'Comic')
+text(180,3150,'Por debajo del valor medio = 0', 'color', [1 0 0], 'Fontname', 'Comic')
+text(180,2900,'Por encima del valor medio = 1', 'color', [0 0 1], 'Fontname', 'Comic')
 
 
 subplot(2,2,3), imshow(im5);%Imagen Binaria
@@ -71,3 +75,13 @@ figure(3), mesh(im2);
 title('Estructura Holografica - Magnitud de intesidades');
 colormap(jet); colorbar
 
+imagenPerfecta = imadjust(im1);
+figure(4), subplot(2,1,1), imshow(imagenPerfecta);colorbar
+title('Imagen corregida con imadjust');
+[h,x] = imhist(imagenPerfecta);
+subplot(2,1,2),stem(x,h,'marker','none');
+p = mean2(imagenPerfecta);
+hold on, line([p,p],[0,max(h)], 'color', 'm')%Marca la media del histograma
+grid on; grid minor;
+title('Histograma de la imagen Perfecta');
+text(110,3700,'valor medio', 'color', [1 0 1], 'Fontname', 'Comic')

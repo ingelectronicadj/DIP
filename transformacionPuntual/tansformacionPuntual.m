@@ -56,3 +56,5 @@ E1 = sum(abs(double(im1(:)).^2));
 
 
 
+
+

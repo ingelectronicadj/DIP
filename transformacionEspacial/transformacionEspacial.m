@@ -32,7 +32,7 @@ ap = Mp^(-1)*x;
 bp = Mp^(-1)*y;
 % Ahora recalculamos el valor para cada punto y lo redondeamos al mas
 % cercano; como es una transformada lineal, un pixel dentro de la nueva
-% transformada puede quedar con un valor que no es entero por el round
+% transformada puede quedar con un valor que no es entero por eso el round
 for m=1:160, 
     for n=1:330, 
         im2(m,n)=im1(round(bp'*[1;n;m;n*m]), round(ap'*[1;n;m;n*m]));

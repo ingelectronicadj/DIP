@@ -1,8 +1,8 @@
 close all; clear all; clc;
 %TRANSFORMACION GEOMETRICA BILINEAL
 
-im1 = imread('images/Automovil023.png');
-%im1 = imread('images/placa_014.png');
+%im1 = imread('images/Automovil023.png');
+im1 = imread('images/placa_014.png');
 %im1 = imread('images/Automovil032.png');
 %im1 = imread('images/Automovil006.png');
 
@@ -10,15 +10,23 @@ figure(1), imshow(im1), title('Imagen Original')
 h1r = imhist(im1(:,:,1));
 h1g = imhist(im1(:,:,2));
 h1b = imhist(im1(:,:,3));
-figure(2), plot(0:255,h1r,'r');hold on; plot(0:255,h1g,'g'); plot(0:255,h1b,'b'); grid on
+figure(2), subplot(2,1,1), plot(0:255,h1r,'r');hold on; plot(0:255,h1g,'g'); plot(0:255,h1b,'b'); grid on
+axis([0 260 0 3000]); % ajusta el rango de los ejes: axis([x1 x2 y1 y2])
 title('Histograma de de la imagen Original a Color - Formato RGB')
 
+[J,Tr] = histeq(im1(:,:,1));
+[J,Tg] = histeq(im1(:,:,2));
+[J,Tb] = histeq(im1(:,:,3));
+subplot(2,1,2), plot((0:255)/255,Tr,'r');hold on;plot((0:255)/255,Tg,'g');plot((0:255)/255,Tb,'b');grid on
+title('Histograma Acumulado - Formato RGB')
+
+
 % Seleccionamos los vertices (x,y) de la placa en vista lateral de la Imagen Original
-y = [230,223,268,281]';
-x = [329,396,393,328]';
+%y = [230,223,268,281]';
+%x = [329,396,393,328]';
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%y = [135,133,188,192]';
-%x = [267,359,356,265]';
+y = [135,133,188,192]';
+x = [267,359,356,265]';
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % y = [146,157,196,176]';
 % x = [268,311,300,258]';

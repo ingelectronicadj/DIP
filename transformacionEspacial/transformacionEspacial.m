@@ -2,9 +2,9 @@ close all; clear all; clc;
 %TRANSFORMACION GEOMETRICA BILINEAL
 
 %im1 = imread('images/Automovil023.png');
-im1 = imread('images/placa_014.png');
+%im1 = imread('images/placa_014.png');
 %im1 = imread('images/Automovil032.png');
-%im1 = imread('images/Automovil006.png');
+im1 = imread('images/Automovil006.png');
 
 figure(1), imshow(im1), title('Imagen Original')
 h1r = imhist(im1(:,:,1));
@@ -22,17 +22,17 @@ title('Histograma Acumulado - Formato RGB')
 
 
 % Seleccionamos los vertices (x,y) de la placa en vista lateral de la Imagen Original
-%y = [230,223,268,281]';
-%x = [329,396,393,328]';
+% y = [230,223,268,281]';
+% x = [329,396,393,328]';
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-y = [135,133,188,192]';
-x = [267,359,356,265]';
+% y = [135,133,188,192]';
+% x = [267,359,356,265]';
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% y = [146,157,196,176]';
-% x = [268,311,300,258]';
+% y = [148,159,196,176]';
+% x = [271,310,299,259]';
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%y = [222,231,280,264]';
-%x = [103,174,169,98]';
+ y = [222,231,280,264]';
+ x = [103,174,169,98]';
 
 yp = [1,1,160,160]'; %Asignamos un tamano para la imagen final
 xp = [1,330,330,1]';
@@ -52,7 +52,7 @@ for m=1:160,
     end; 
 end;
 
-figure(3), imshow(im3); title('Transformacion Vista Frontal')
+figure(3), imshow(imadjust(im3)); title('Transformacion Vista Frontal')
 
 % Para reconocer texto mediante reconocimiento optico de caracteres
 % https://www.mathworks.com/help/vision/ref/ocr.html?s_tid=srchtitle

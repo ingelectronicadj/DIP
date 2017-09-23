@@ -95,4 +95,8 @@ im12(:,1:19)=[];%elimina  las primeras 18 columnas
 im12(:,303:end)=[];%elimina las columnas desde el 303 hasta 330
 figure(6), imshow(im12); 
 im8 = uint8(im12);
+<<<<<<< HEAD
 txt = ocr(im8), txt.Text
+=======
+txt = ocr(im8), txt.Text
+>>>>>>> 21f7fe4b42f5c0e78241c6d93d07f927335b0b63

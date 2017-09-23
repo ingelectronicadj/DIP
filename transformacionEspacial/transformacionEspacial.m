@@ -73,3 +73,26 @@ im6 = filter2(s2,im3); %derivada vertical
 subplot(1,3,2), imshow([im5;im6],[]), title('Derivada Horizontal y Vertical')
 im7 = abs(im5)  + abs(im6); % Gradiente
 subplot(1,3,3), imshow([im3,[];im7,[]]), title('Convolucion entre la imagen y la matriz')
+
+im11=im3./max(im3);
+im12=zeros(size(im3));
+%%%%%%%%%%%%%%%%
+for m=1:160, 
+    for n=1:330, 
+        if (im11(m,n) >= 0.18) && (im11(m,n) <= 0.58)  
+            im12(m,n)=0;
+        else
+            im12(m,n)=1;
+        end
+    end; 
+end;
+close all
+figure(5),imshow([im11 im12])
+
+im12(1:15,:)=[];%elimina las 15 filas primeras de la imagen
+im12(125:end,:)=[];%elimina las filas desde la 125 hasta 160
+im12(:,1:19)=[];%elimina  las primeras 18 columnas 
+im12(:,303:end)=[];%elimina las columnas desde el 303 hasta 330
+figure(6), imshow(im12); 
+im8 = uint8(im12);
+txt = ocr(im8), txt.Text

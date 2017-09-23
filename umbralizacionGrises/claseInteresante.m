@@ -1,6 +1,4 @@
-close all
-clear all
-clc
+close all; clear all; clc
 
 im1 = imread('figGeometricas.png');
 [M,N] = size(im1);%obtiene el tamano de la imagen fila,columna

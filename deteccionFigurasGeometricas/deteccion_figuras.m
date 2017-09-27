@@ -31,12 +31,14 @@ Xk(324,405) = 250; %figura 12
 im5 = bitor(im3,Xk);
 figure(1), imshow(im5); title('Bordes Externos y Puntos Semilla'); 
 
+figure(2), imshow(im5); title('Objetos rotulados'); 
 [m,n] = size(im5);
+num = 0;
 for m=1:m
     for n=1:n
         if(im5(m,n)==250)
-           %Xk = false;
-           text(m,n,'Figura', 'color', [0.3 0.6 1], 'Fontname', 'Comic');
+           num = num + 1;
+           text(n,m,['Fig.' num2str(num)], 'color', [0.3 0.6 1], 'Fontname', 'Comic', 'horizontalAlignment', 'center');
         end
     end
 end

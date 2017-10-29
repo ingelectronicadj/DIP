@@ -12,7 +12,7 @@ propied=regionprops(im1,'BoundingBox');
 numero =0;
 sumas = ~im5;
 se = ones(3);
-
+ 
 [m,n] = size(im5);
 for i=1:m-20
     
